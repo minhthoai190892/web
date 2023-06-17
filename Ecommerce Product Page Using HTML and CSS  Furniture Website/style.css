@@ -197,3 +197,16 @@ transition: background 0.4s ease-in-out;
     margin: 0 auto;
     border-radius: 15px;
 }
+.featured-btns button:last-child{
+    background-color: white !important;
+    color: var(--blackRussian);
+    margin-left: 10px;
+
+}
+.featured-btns button:last-child:hover{
+    color: var(--pacificBlue);
+    border-color: var(--pacificBlue);
+}
+.featured-item >div{
+    padding: 24px;
+}
