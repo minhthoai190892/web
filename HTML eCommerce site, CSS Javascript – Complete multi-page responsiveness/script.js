@@ -9,9 +9,17 @@ function copyMenu(){
     var navPlaced=document.querySelector('.off-canvas nav')
     navPlaced.innerHTML = mainNav.innerHTML;
     //copy .header-top .warapper to .thetop-nav
-    var topNav = document.querySelector('.header-top')
+    var topNav = document.querySelector('.header-top .wrapper')
     var topPlace = document.querySelector('.off-canvas .thetop-nav')
     topPlace.innerHTML = topNav.innerHTML;
     console.log(topPlace.innerHTML = topNav.innerHTML)
 }
 copyMenu();
+// show sub menu on mobile
+const submenu = document.querySelectorAll('.has-child .icon-small');
+submenu.forEach((menu)=>menu.addEventListener('click',toggle));
+function toggle(e) {
+    e.preventDefault();
+    submenu.forEach((item)=> item !=this?item.closest('.has-child').classList.remove('expand'):null);
+    
+}
