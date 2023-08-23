@@ -21,5 +21,16 @@ submenu.forEach((menu)=>menu.addEventListener('click',toggle));
 function toggle(e) {
     e.preventDefault();
     submenu.forEach((item)=> item !=this?item.closest('.has-child').classList.remove('expand'):null);
-    
+    if (this.closest('.has-child').classList!='expand') {
+        this.closest('.has-child').classList.toggle('expand')
+    }
 }
+
+// show mobile menu
+const menuButton = document.querySelector(".trigger"),closeButton = document.querySelector(".t-close"),addclass = document.querySelector(".site");
+menuButton.addEventListener("click",function(){
+    addclass.classList.toggle('showmenu');
+})
+closeButton.addEventListener('click',function(){
+    addclass.classList.remove('showmenu');
+})
