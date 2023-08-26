@@ -261,3 +261,10 @@ Featured collections
 #---------- FAVORITE PAGE ----------#
 
 Favorites - Pixstock
+
+
+31:46 / 6:56:09
+
+git add .
+git commit -m "main"
+git push -u origin main
