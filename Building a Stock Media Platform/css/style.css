@@ -124,6 +124,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   /* TRANSITION */
   :root {
     /* Duration */
@@ -272,8 +273,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  transition: opacity var(--motion-duration-medium-2)
-    var(--motion-easing-linear);
+  transition: opacity var(--motion-duration-medium-2) var(--motion-easing-linear);
 }
 
 button:disabled {
@@ -352,62 +352,75 @@ button:disabled {
   line-height: 16px;
   letter-spacing: 0.5px;
 }
+
 .label-small {
   font-size: var(--fs-label-small);
   font-weight: var(--weight-medium);
   line-height: 16px;
   letter-spacing: 0.5px;
 }
+
 .body-large {
   font-size: var(--fs-body-large);
   font-weight: var(--weight-regular);
   line-height: 24px;
   letter-spacing: 0.5px;
 }
+
 .body-medium {
   font-size: var(--fs-body-medium);
   font-weight: var(--weight-regular);
   line-height: 20px;
   letter-spacing: 0.25px;
 }
+
 .body-small {
   font-size: var(--fs-body-small);
   font-weight: var(--weight-regular);
   line-height: 16px;
   letter-spacing: 0.4px;
 }
+
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
 /* icon  */
-.material-symbols-outlined{
+.material-symbols-outlined {
   display: block;
   width: 1em;
   height: 1em;
-  font-variation-settings:'FILL'0,'wght'400,'GRAD'0,'opsz'24
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
 }
+
 /* :has(.state-layer){
   position: relative;
   overflow: hidden;
   z-index: 1;
 } */
-.ripple, .state-layer{
+.ripple,
+.state-layer {
   background-color: var(--state-layer-bg);
   position: absolute;
   pointer-events: none;
   z-index: 1;
 }
-.state-layer{
-border-radius: inherit;
-inset: 0;
-opacity: 0;
-transition: var(--motion-duration-short-2) var(--motion-easing-linear);
+
+.state-layer {
+  border-radius: inherit;
+  inset: 0;
+  opacity: 0;
+  transition: var(--motion-duration-short-2) var(--motion-easing-linear);
 }
-:has(.state-layer):hover>.state-layer{opacity: 0.08;}
-:has(.state-layer):hover>:is(:focus,:focus-visible,:active)>.state-layer{
-opacity: 0.12;
+
+:has(.state-layer):hover>.state-layer {
+  opacity: 0.08;
 }
-.ripple{
+
+:has(.state-layer):hover>:is(:focus, :focus-visible, :active)>.state-layer {
+  opacity: 0.12;
+}
+
+.ripple {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
@@ -416,26 +429,31 @@ opacity: 0.12;
   opacity: 0.12;
   animation: ripple 800ms var(--motion-easing-standard) forwards;
 }
-@keyframes ripple{
-  0%{
-    scale:0
+
+@keyframes ripple {
+  0% {
+    scale: 0
   }
-  100%{
-    scale:2.5
+
+  100% {
+    scale: 2.5
   }
 }
-.logo{
+
+.logo {
   color: var(--primary);
   font-size: 2.6rem;
   font-weight: var(--weight-medium);
   line-height: 28px;
   letter-spacing: -0.5px;
 }
-.divider{
+
+.divider {
   height: 1px;
   max-width: 100%;
   background-color: var(--outline-variant);
 }
+
 /*-----------------------------------*\
   #COMPONENT
 \*-----------------------------------*/
@@ -443,9 +461,9 @@ opacity: 0.12;
 /**
  * Icon button
  */
-.icon-btn{
+.icon-btn {
   color: var(--on-surface-variant);
-  --state-layer-bg:var(--on-surface-variant);
+  --state-layer-bg: var(--on-surface-variant);
   position: relative;
   min-width: 48px;
   height: 48px;
@@ -453,24 +471,60 @@ opacity: 0.12;
   place-items: center;
   border-radius: var(--radius-circle);
 }
-.icon-btn > .state-layer{inset: 4px;}
-.icon-btn > .ripple{
+
+.icon-btn>.state-layer {
+  inset: 4px;
+}
+
+.icon-btn>.ripple {
   width: 40px;
   height: 40px;
   animation: icon-button-ripple 200ms var(--motion-easing-standard);
 }
+
 @keyframes icon-button-ripple {
-  0%{
-    scale:0
+  0% {
+    scale: 0
   }
-  100%{
-    scale:1
+
+  100% {
+    scale: 1
   }
 }
+
 /**
  * Segment button
  */
-
+.btn-segment {
+  color: var(--on-surface);
+  
+  /* --state-layer-bg: var(--on-surface); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-inline: 12px;
+  height: 40px;
+  flex-grow: 1;
+}
+.btn-group .btn-segment:not(:last-child){
+  border-inline-end: 1px solid var(--outline);
+}
+.btn-group{
+  display: flex;
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.btn-segment .material-symbols-outlined{
+  font-size: 1.8rem;
+}
+.btn-segment.selected{
+  background-color: var(--secondary-container);
+  color: var(--on-secondary-container);
+  /* --state-layer-bg: var(--on-secondary-container); */
+  
+}
 /**
  * Split btn
  */
@@ -478,7 +532,7 @@ opacity: 0.12;
 /**
  * Search view
  */
-.search-view{
+.search-view {
   background-color: var(--surface-container-high);
   position: fixed;
   top: 0;
@@ -489,13 +543,68 @@ opacity: 0.12;
   opacity: 0;
   visibility: hidden;
   transition: var(--motion-duration-short-2) var(--motion-easing-standard);
-  transition-property: opacity,visibility;
+  transition-property: opacity, visibility;
 }
+
 /* thêm show vào class */
-.search-view.show{
+.search-view.show {
   opacity: 1;
   visibility: visible;
 }
+
+.input-wrapper .leading-icon {
+  display: none;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 4px;
+  height: 72px;
+  border-block-end: 1px solid var(--outline);
+}
+
+.search-bar .icon-btn {
+  flex-shrink: 0;
+}
+
+.input-field {
+  color: var(--on-surface);
+}
+
+.input-wrapper {
+  flex-grow: 1;
+}
+
+.input-wrapper,
+.input-field {
+  height: 100%;
+}
+
+.input-field::placeholder {
+  color: var(--on-surface-variant);
+}
+
+/* xóa "x" trong input search */
+.input-field::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* ẩn dấu "x" khi nhập text thì show ra */
+.input-wrapper:has(:placeholder-shown)+.icon-btn {
+  display: none;
+}
+
+.search-bar .search-btn {
+  --state-layer-bg: var(--primary);
+  color: var(--primary);
+}
+
+.search-view-content .btn-group {
+  margin: 16px;
+}
+
 /**
  * List
  */
@@ -537,27 +646,31 @@ opacity: 0.12;
   top: 0;
   width: 100%;
   z-index: 4;
-  transition: background-color var(--motion-duration-short-2)
-    var(--motion-easing-linear);
+  transition: background-color var(--motion-duration-short-2) var(--motion-easing-linear);
 }
+
 /* khi active thì đổi màu top-app-bar */
 .top-app-bar.active {
   background-color: var(--surface-container);
 }
-.top-app-bar .logo{
+
+.top-app-bar .logo {
   /* giản cách giữa logo và button */
   margin-inline: 4px auto;
 }
+
 /* thay đổi màu sáng tối của trang html
   khi "light" được chọn sẽ ẩn đi icon
 */
 [data-theme="dark"] .theme-btn .dark-icon,
-[data-theme="light"] .theme-btn .light-icon{
+[data-theme="light"] .theme-btn .light-icon {
   display: none;
 }
-.search-view-content .divider{
- margin-inline: 16px;
+
+.search-view-content .divider {
+  margin-inline: 16px;
 }
+
 /*-----------------------------------*\
   #SCRIM
 \*-----------------------------------*/
