@@ -608,7 +608,25 @@ button:disabled {
 /**
  * List
  */
-
+ .list{
+  padding-block: 8px;
+ }
+ .list-item{
+  display: flex;
+  /* --state-layer-bg: var(--on-surface); */
+  align-items: center;
+  gap: 16px;
+  padding-inline: 16px 24px;
+  padding-block: 8px;
+  width: 100%;
+ }
+.list-item .text{
+  color: var(--on-surface);
+}
+.list-item .leading-icon{
+  font-size: 1.8rem;
+  color: var(--on-surface-variant);
+}
 /**
  * Navigation
  */
