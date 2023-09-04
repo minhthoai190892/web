@@ -273,6 +273,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  height: 300vh;
   transition: opacity var(--motion-duration-medium-2) var(--motion-easing-linear);
 }
 
